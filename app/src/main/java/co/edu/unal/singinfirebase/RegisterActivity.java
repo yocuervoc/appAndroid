@@ -4,9 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,34 +17,34 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
+    private EditText Epassword, Eemail, name;
     private FirebaseAuth mAuth;
-    private EditText TextEmail, TextPassword;
-
     private ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_register);
 
-        TextEmail = (EditText)findViewById(R.id.etMail);
-        TextPassword = (EditText)findViewById(R.id.edPassworlogin);
+        Epassword = (EditText)findViewById(R.id.etPassword);
+        Eemail = (EditText)findViewById(R.id.etMail);
+        name = (EditText)findViewById(R.id.etName);
 
         mAuth = FirebaseAuth.getInstance();
 
         progressDialog = new ProgressDialog(this);
-
-
     }
 
+    public void registrarUsuario(View view){
 
-    public void login(View view){
         //Obtenemos el email y la contraseña desde las cajas de texto
-        String email = TextEmail.getText().toString().trim();
-        String password  = TextPassword.getText().toString().trim();
+        String email = Eemail.getText().toString().trim();
+        String password  = Epassword.getText().toString().trim();
 
         //Verificamos que las cajas de texto no esten vacías
         if(TextUtils.isEmpty(email)){
@@ -58,34 +58,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        progressDialog.setMessage("Ingresando  en linea...");
+        progressDialog.setMessage("Realizando registro en linea...");
         progressDialog.show();
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "Welcome :)", Toast.LENGTH_SHORT).show();
-                            Intent opcione = new Intent(MainActivity.this, OptionsActivity.class);
-                            startActivity(opcione);
-
+                            Toast.makeText(RegisterActivity.this,"Se ha registrado el usuario con el email: "+ Eemail.getText(),Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(MainActivity.this, "Error en unsuario o contraseña", Toast.LENGTH_LONG).show();
+                            if (task.getException() instanceof FirebaseAuthUserCollisionException) {//si se presenta una colisión
+                                Toast.makeText(RegisterActivity.this, "Ese usuario ya existe ", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(RegisterActivity.this, "No se pudo registrar el usuario ", Toast.LENGTH_LONG).show();
+                            }
                         }
 
-                        // ...
                     }
                 });
 
     }
-
-    public void registeractivity(View view){
-        Intent resgistrar = new Intent(this, RegisterActivity.class);
-        startActivity(resgistrar);
-    }
-
-
-
-
 }

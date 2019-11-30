@@ -1,4 +1,4 @@
-package co.edu.unal.singinfirebase;
+package co.edu.unal.singinfirebase.clases;
 
 public class Restaurant {
     String name, address;

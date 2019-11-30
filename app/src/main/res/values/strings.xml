@@ -4,4 +4,6 @@
     <string name="password">password</string>
     <string name="registrar">registrar</string>
     <string name="login">Log in</string>
+    <string name="mensaje">¿Aun no tienes cuenta? Registrate aqui:</string>
+    <string name="name">Nombre</string>
 </resources>
