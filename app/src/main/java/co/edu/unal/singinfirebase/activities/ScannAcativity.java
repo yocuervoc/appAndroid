@@ -1,4 +1,4 @@
-package co.edu.unal.singinfirebase;
+package co.edu.unal.singinfirebase.activities;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,13 +9,13 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+
+import co.edu.unal.singinfirebase.R;
 
 
 public class ScannAcativity extends AppCompatActivity  {

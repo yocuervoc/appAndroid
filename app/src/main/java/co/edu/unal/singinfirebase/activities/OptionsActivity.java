@@ -1,10 +1,12 @@
-package co.edu.unal.singinfirebase;
+package co.edu.unal.singinfirebase.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import co.edu.unal.singinfirebase.R;
 
 
 public class OptionsActivity extends AppCompatActivity {
