@@ -20,7 +20,7 @@ public class OptionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_options);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
-        myRef.setValue("Hello, World!");
+        myRef.setValue("hi bithc");
 
     }
 
