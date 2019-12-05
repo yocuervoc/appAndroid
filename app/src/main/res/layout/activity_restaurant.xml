@@ -4,13 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ScannAcativity">
+    tools:context=".activities.RestaurantActivity">
 
-    <TextView
-        android:id="@+id/QrInfo"
-        android:layout_width="215dp"
-        android:layout_height="54dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="72dp"
-        tools:layout_editor_absoluteY="77dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
