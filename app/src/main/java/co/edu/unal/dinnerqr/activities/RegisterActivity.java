@@ -93,7 +93,15 @@ public class RegisterActivity extends AppCompatActivity {
     public void registerDB(String name, String email){
 
         String id = cliente.push().getKey();
-        Cliente client = new Cliente( name, email, "0");
+        //Cliente client = new Cliente( id, name, email, "0");
+        Cliente client = new Cliente();
+        client.setId(id);
+        client.setBill("0");
+        client.seteMail(email);
+        client.setName(name);
+
+
+
         cliente.child(id).setValue(client);
 
     }

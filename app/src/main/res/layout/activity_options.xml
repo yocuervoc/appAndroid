@@ -33,7 +33,7 @@
         android:layout_height="135dp"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="128dp"
         android:onClick="scan"
         android:src="@mipmap/qr"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,4 +48,25 @@
         android:src="@mipmap/destacados"
         app:layout_constraintStart_toEndOf="@+id/imageButtonQr"
         app:layout_constraintTop_toTopOf="@+id/imageButtonQr" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="72dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="40dp"
+        android:text="bienvenido"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Tvname"
+        android:layout_width="242dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
