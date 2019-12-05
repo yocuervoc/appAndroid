@@ -8,6 +8,80 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:36522941760:android:f6429694862bc947c46ea5",
+        "android_client_info": {
+          "package_name": "co.edu.unal.dinnerqr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36522941760-0aiebqncsenisldbv6rbt3d41scagjlo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.edu.unal.dinnerqr",
+            "certificate_hash": "dfc0ceb4587a83199888c5385ac1308817ed0803"
+          }
+        },
+        {
+          "client_id": "36522941760-efnvj82qr5igrm1jqf3nkrl7dkuguufu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgajDQ5IxfdzIc-quCBJwX7v_N1MSsxgc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36522941760-efnvj82qr5igrm1jqf3nkrl7dkuguufu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36522941760:android:401324c4b731d464c46ea5",
+        "android_client_info": {
+          "package_name": "co.edu.unal.pruebadb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36522941760-1ub9b615shd5l4cekhimbfeli7b7ih96.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.edu.unal.pruebadb",
+            "certificate_hash": "dfc0ceb4587a83199888c5385ac1308817ed0803"
+          }
+        },
+        {
+          "client_id": "36522941760-efnvj82qr5igrm1jqf3nkrl7dkuguufu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgajDQ5IxfdzIc-quCBJwX7v_N1MSsxgc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36522941760-efnvj82qr5igrm1jqf3nkrl7dkuguufu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:36522941760:android:89f5763d7276c86cc46ea5",
         "android_client_info": {
           "package_name": "co.edu.unal.singinfirebase"

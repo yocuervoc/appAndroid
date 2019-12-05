@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">singInFirebase</string>
+    <string name="app_name">DinnerQR</string>
     <string name="email">Email</string>
     <string name="password">password</string>
     <string name="registrar">registrar</string>

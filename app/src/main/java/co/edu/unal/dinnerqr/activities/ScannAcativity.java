@@ -1,9 +1,4 @@
-package co.edu.unal.singinfirebase.activities;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+package co.edu.unal.dinnerqr.activities;
 
 import android.Manifest;
 import android.content.Intent;
@@ -12,13 +7,18 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-import co.edu.unal.singinfirebase.R;
+import co.edu.unal.dinnerqr.R;
 
 
-public class ScannAcativity extends AppCompatActivity  {
+public class ScannAcativity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
     public TextView tvBarCode;
     public ImageButton imageButtonQr;

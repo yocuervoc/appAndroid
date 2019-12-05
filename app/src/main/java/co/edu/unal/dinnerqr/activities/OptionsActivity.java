@@ -1,12 +1,15 @@
-package co.edu.unal.singinfirebase.activities;
-
-import androidx.appcompat.app.AppCompatActivity;
+package co.edu.unal.dinnerqr.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import co.edu.unal.singinfirebase.R;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import co.edu.unal.dinnerqr.R;
 
 
 public class OptionsActivity extends AppCompatActivity {
@@ -15,6 +18,9 @@ public class OptionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message");
+        myRef.setValue("Hello, World!");
 
     }
 

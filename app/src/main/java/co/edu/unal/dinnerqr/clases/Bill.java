@@ -1,4 +1,4 @@
-package co.edu.unal.singinfirebase.clases;
+package co.edu.unal.dinnerqr.clases;
 
 public class Bill {
 

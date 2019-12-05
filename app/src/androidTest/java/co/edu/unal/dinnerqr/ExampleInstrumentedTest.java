@@ -1,4 +1,4 @@
-package co.edu.unal.singinfirebase;
+package co.edu.unal.dinnerqr;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("co.edu.unal.singinfirebase", appContext.getPackageName());
+        assertEquals("co.edu.unal.dinnerqr", appContext.getPackageName());
     }
 }
