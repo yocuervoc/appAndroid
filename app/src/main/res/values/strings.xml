@@ -8,4 +8,5 @@
     <string name="name">Nombre</string>
     <string name="Agregar">agregar</string>
     <string name="Total">Total a pagar: </string>
+    <string name="factura">Mi cuenta</string>
 </resources>

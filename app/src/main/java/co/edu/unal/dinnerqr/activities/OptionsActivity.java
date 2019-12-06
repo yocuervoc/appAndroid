@@ -75,6 +75,9 @@ public class OptionsActivity extends AppCompatActivity {
         Intent optionsActivity = new Intent(this, OptionsActivity.class);
         startActivity(optionsActivity);
     }
-
+    public void myBill(View view){
+        Intent bill = new Intent(this, BillActivity.class);
+        startActivity(bill);
+    }
 
 }

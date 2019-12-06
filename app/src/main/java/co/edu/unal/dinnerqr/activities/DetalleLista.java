@@ -105,8 +105,8 @@ public class DetalleLista extends AppCompatActivity {
                 billprice.add(precio);
                 Toast.makeText(context,"Tu plato esta en camino", Toast.LENGTH_SHORT).show();
 
-                Intent i = new Intent(context, BillActivity.class);
-                startActivity(i);
+                //Intent i = new Intent(context, BillActivity.class);
+                //startActivity(i);
             }
 
             public void cancelar() {
