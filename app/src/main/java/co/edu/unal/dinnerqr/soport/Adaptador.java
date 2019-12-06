@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import co.edu.unal.dinnerqr.R;
 import co.edu.unal.dinnerqr.activities.RestaurantActivity;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 
 public class Adaptador extends BaseAdapter {
     private ArrayList<Entidad> listEntidad;
@@ -21,6 +23,7 @@ public class Adaptador extends BaseAdapter {
     private LayoutInflater inflater;
 
     public Adaptador(Context context, ArrayList<Entidad> listEntidad) {
+
         this.context = context;
         this.listEntidad = listEntidad;
     }
@@ -61,8 +64,11 @@ public class Adaptador extends BaseAdapter {
             public void onClick(View v) {
                 Intent i = new Intent(context, DetalleLista.class);
                 i.putExtra("item", entidad);
+                //context.startActivity(i);
                 context.startActivity(i);
-                System.out.println("Click !!");
+
+
+                //System.out.println("Click !!");
             }
         });
 

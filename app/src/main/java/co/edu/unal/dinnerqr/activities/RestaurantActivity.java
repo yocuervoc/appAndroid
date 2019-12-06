@@ -74,6 +74,7 @@ public class RestaurantActivity extends AppCompatActivity {
 
     }
     private void llenarItems(String nombre, double precio){
+
         arrayEntidad.add(new Entidad(R.drawable.plato, nombre, Double.toString(precio)));
 
         adaptador = new Adaptador(this, arrayEntidad);
