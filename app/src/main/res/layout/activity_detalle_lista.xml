@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.DetalleLista">
+
+
 
     <TextView
         android:id="@+id/tvTitulo"
@@ -19,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+
         android:id="@+id/imgFoto"
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -26,12 +30,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
 
+
     <TextView
         android:id="@+id/tvDescripcion"
         android:layout_width="205dp"
         android:layout_height="67dp"
         android:layout_marginTop="28dp"
         android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgFoto" />
@@ -44,6 +50,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginTop="24dp"
         android:text="TextView"
+        android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/tvDescripcion" />
 
@@ -54,7 +61,20 @@
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:text="Precio: $"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/Precio" />
+
+    <Button
+        android:id="@+id/btAdd"
+        android:layout_width="101dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/Agregar"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/Precio"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescripcion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

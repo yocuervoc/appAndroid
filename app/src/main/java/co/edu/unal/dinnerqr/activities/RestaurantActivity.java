@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -61,8 +60,6 @@ public class RestaurantActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
     private void llenarItems(String id, String nombre, double precio, String descripcion){
 
