@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,7 +20,6 @@ import java.util.ArrayList;
 import co.edu.unal.dinnerqr.R;
 import co.edu.unal.dinnerqr.clases.Plato;
 import co.edu.unal.dinnerqr.soport.Adaptador;
-import co.edu.unal.dinnerqr.soport.DetalleLista;
 import co.edu.unal.dinnerqr.soport.Entidad;
 
 public class RestaurantActivity extends AppCompatActivity {
@@ -34,7 +31,7 @@ public class RestaurantActivity extends AppCompatActivity {
     /////
     private ListView lvItems;
     private Adaptador adaptador;
-    private ArrayList<Entidad> arrayEntidad = new ArrayList<>();
+    private ArrayList<Plato> arrayEntidad = new ArrayList<>();
     /////
 
     @Override
@@ -45,14 +42,9 @@ public class RestaurantActivity extends AppCompatActivity {
         nombreRestaurante = (TextView)findViewById(R.id.tvRestaurantName);
         String qrContend = getIntent().getStringExtra("code");
         nombreRestaurante.setText(qrContend);
-        ////
         lvItems = (ListView) findViewById(R.id.lvItems);
 
-        ////
-
         DatabaseReference restaurante = database.getInstance().getReference("restaurant").child(qrContend);
-        //final ArrayList<Plato> platos;
-        //platos =  new ArrayList<>();
         restaurante.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -60,8 +52,7 @@ public class RestaurantActivity extends AppCompatActivity {
                 for( DataSnapshot snapshot: dataSnapshot.getChildren()){
                     Plato plato = snapshot.getValue(Plato.class);
                     Log.e("Nombre", ""+plato.getName());
-                    //platos.add(plato);
-                    llenarItems(plato.getName(), plato.getPrice());
+                    llenarItems(plato.getId(), plato.getName(), plato.getPrice(), plato.getDescription());
                 }
             }
 
@@ -73,9 +64,15 @@ public class RestaurantActivity extends AppCompatActivity {
 
 
     }
-    private void llenarItems(String nombre, double precio){
+    private void llenarItems(String id, String nombre, double precio, String descripcion){
 
-        arrayEntidad.add(new Entidad(R.drawable.plato, nombre, Double.toString(precio)));
+        Plato plato = new Plato();
+        plato.setId(id);
+        plato.setName(nombre);
+        plato.setPrice(precio);
+        plato.setDescription(descripcion);
+
+        arrayEntidad.add(plato);
 
         adaptador = new Adaptador(this, arrayEntidad);
         lvItems.setAdapter(adaptador);
@@ -84,7 +81,4 @@ public class RestaurantActivity extends AppCompatActivity {
         Intent optionsActivity = new Intent(this, OptionsActivity.class);
         startActivity(optionsActivity);
     }
-
-
-
 }
