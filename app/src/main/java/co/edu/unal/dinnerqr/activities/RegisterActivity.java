@@ -101,7 +101,6 @@ public class RegisterActivity extends AppCompatActivity {
         client.setName(name);
 
 
-
         cliente.child(id).setValue(client);
 
     }

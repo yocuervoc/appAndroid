@@ -26,8 +26,8 @@ public class ScannAcativity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scann_acativity);
-        tvBarCode = (TextView)findViewById(R.id.QrInfo);
+        //setContentView(R.layout.activity_scann_acativity);
+        //tvBarCode = (TextView)findViewById(R.id.QrInfo);
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
             // Explicamos porque necesitamos el permiso
@@ -38,6 +38,7 @@ public class ScannAcativity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, MY_PERMISSIONS_REQUEST_CAMERA);
         }
         new IntentIntegrator(ScannAcativity.this).initiateScan();
+
     }
 
     @Override
@@ -48,12 +49,20 @@ public class ScannAcativity extends AppCompatActivity {
 
         if(result != null)
             if (result.getContents() != null){
-                tvBarCode.setText("El código de barras es:\n" + result.getContents());
+                //tvBarCode.setText("El código de barras es:\n" + result.getContents());
+                Intent restaurantCode = new Intent(this, RestaurantActivity.class);
+                restaurantCode.putExtra("code", result.getContents());
+                startActivity(restaurantCode);
             }else{
-                tvBarCode.setText("Error al escanear el código de barras");
+                //tvBarCode.setText("Error al escanear el código de barras");
 
             }
     }
+    @Override public void onBackPressed() {
+        Intent optionsActivity = new Intent(this, OptionsActivity.class);
+        startActivity(optionsActivity);
+    }
+
 
 
 }

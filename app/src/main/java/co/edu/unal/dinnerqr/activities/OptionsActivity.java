@@ -71,5 +71,10 @@ public class OptionsActivity extends AppCompatActivity {
         startActivity(scanear);
     }
 
+    @Override public void onBackPressed() {
+        Intent optionsActivity = new Intent(this, OptionsActivity.class);
+        startActivity(optionsActivity);
+    }
+
 
 }

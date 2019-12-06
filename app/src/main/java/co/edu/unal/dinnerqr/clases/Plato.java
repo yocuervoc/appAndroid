@@ -1,13 +1,12 @@
 package co.edu.unal.dinnerqr.clases;
 
 public class Plato {
-    String name, description;
+    String id, name, description;
     double price;
 
-    public Plato(String name, String description, double price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {
@@ -18,8 +17,13 @@ public class Plato {
         return description;
     }
 
+
     public double getPrice() {
         return price;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -29,6 +33,7 @@ public class Plato {
     public void setDescription(String description) {
         this.description = description;
     }
+
 
     public void setPrice(double price) {
         this.price = price;
