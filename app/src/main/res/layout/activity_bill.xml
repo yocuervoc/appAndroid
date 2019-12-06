@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/tvBillPrice"
-        android:layout_width="189dp"
-        android:layout_height="37dp"
+        android:layout_width="171dp"
+        android:layout_height="36dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:text="0"
@@ -43,8 +43,11 @@
         android:id="@+id/Tv2234"
         android:layout_width="129dp"
         android:layout_height="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="60dp"
         android:text="@string/Total"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="577dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listabill" />
 </androidx.constraintlayout.widget.ConstraintLayout>
