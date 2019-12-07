@@ -32,6 +32,7 @@ public class RestaurantActivity extends AppCompatActivity {
     private Adaptador adaptador;
     private ArrayList<Plato> arrayEntidad = new ArrayList<>();
     /////
+    static String qrContend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class RestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_restaurant);
         //listView = (ListView)findViewById(R.id.lvPlatos);
         nombreRestaurante = (TextView)findViewById(R.id.tvRestaurantName);
-        String qrContend = getIntent().getStringExtra("code");
+        qrContend = getIntent().getStringExtra("code");
         nombreRestaurante.setText(qrContend);
         lvItems = (ListView) findViewById(R.id.lvItems);
 
@@ -49,9 +50,13 @@ public class RestaurantActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for( DataSnapshot snapshot: dataSnapshot.getChildren()){
-                    Plato plato = snapshot.getValue(Plato.class);
-                    Log.e("Nombre", ""+plato.getName());
-                    llenarItems(plato.getId(), plato.getName(), plato.getPrice(), plato.getDescription());
+                    try {
+                        Plato plato = snapshot.getValue(Plato.class);
+                        //Log.e("Nombre", ""+plato.getName());
+                        llenarItems(plato.getId(), plato.getName(), plato.getPrice(), plato.getDescription());
+                    }catch (Exception e){
+
+                    }
                 }
             }
 
