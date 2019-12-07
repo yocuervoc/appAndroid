@@ -21,6 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 import co.edu.unal.dinnerqr.R;
 import co.edu.unal.dinnerqr.clases.Cliente;
 
+import static co.edu.unal.dinnerqr.activities.DetalleLista.idUser;
+import static co.edu.unal.dinnerqr.activities.RestaurantActivity.qrContend;
+
 
 public class OptionsActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -57,6 +60,7 @@ public class OptionsActivity extends AppCompatActivity {
 
             }
         });
+        readBill();
     }
     @Override
     public void onStart() {
@@ -78,6 +82,41 @@ public class OptionsActivity extends AppCompatActivity {
     public void myBill(View view){
         Intent bill = new Intent(this, BillActivity.class);
         startActivity(bill);
+    }
+    public void readBill(){
+        FirebaseAuth mAuth;
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference cliente1 = database.getInstance().getReference("client");
+        if(qrContend==null){
+            final FirebaseUser currentUser = mAuth.getCurrentUser();
+            cliente1.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    for( DataSnapshot snapshot: dataSnapshot.getChildren()){
+
+                        Cliente currentClient = snapshot.getValue(Cliente.class);
+
+                        if(currentClient.geteMail().equals(currentUser.getEmail())){
+                            qrContend = currentClient.getBill();
+                            idUser = currentClient.getId();
+                            break;
+                        }else{
+
+                        }
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+        Log.e("qrcontend", ""+qrContend);
+        Log.e("idUser", ""+idUser);
     }
 
 }

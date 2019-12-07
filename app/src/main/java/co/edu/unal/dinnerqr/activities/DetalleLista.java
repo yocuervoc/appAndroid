@@ -144,6 +144,8 @@ public class DetalleLista extends AppCompatActivity {
                 billprice.add(precio);
                 String idBill = bill.child(qrContend).child(idUser).push().getKey();
                 bill.child(qrContend).child(idUser).child(idBill).setValue(id);
+
+                cliente.child(idUser).child("bill").setValue(qrContend);
                 Toast.makeText(context,"Tu plato esta en camino", Toast.LENGTH_SHORT).show();
 
             }
@@ -162,6 +164,4 @@ public class DetalleLista extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         //nombreUser.setText(currentUser.getEmail());
     }
-
-
 }
