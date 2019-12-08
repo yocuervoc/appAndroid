@@ -36,10 +36,8 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         progressDialog = new ProgressDialog(this);
-
-
+        progressDialog.setProgressStyle(R.style.background);
     }
-
 
     public void login(View view){
         //Obtenemos el email y la contraseña desde las cajas de texto
@@ -57,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-
-        progressDialog.setMessage("Ingresando  en linea...");
+        progressDialog.setMessage("Ingresando en linea...");
         progressDialog.show();
 
         mAuth.signInWithEmailAndPassword(email, password)
@@ -66,14 +63,14 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "Welcome :)", Toast.LENGTH_SHORT).show();
-                            Intent opcione = new Intent(MainActivity.this, OptionsActivity.class);
-                            startActivity(opcione);
+                            //Toast.makeText(MainActivity.this, "Welcome :)", Toast.LENGTH_SHORT).show();
+                            Intent opciones = new Intent(MainActivity.this, OptionsActivity.class);
+                            startActivity(opciones);
 
                         } else {
-                            Toast.makeText(MainActivity.this, "Error en unsuario o contraseña", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this, "Error en usuario o contraseña", Toast.LENGTH_LONG).show();
+                            progressDialog.cancel();
                         }
-
                         // ...
                     }
                 });
@@ -81,11 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void registeractivity(View view){
-        Intent resgistrar = new Intent(this, RegisterActivity.class);
-        startActivity(resgistrar);
+        Intent registrar = new Intent(this, RegisterActivity.class);
+        startActivity(registrar);
     }
-
-
-
-
 }

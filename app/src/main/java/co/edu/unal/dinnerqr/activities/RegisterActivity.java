@@ -33,7 +33,6 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference cliente = database.getInstance().getReference("client");
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +65,6 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-
         progressDialog.setMessage("Realizando registro en linea...");
         progressDialog.show();
         //registerDB(nombre, email);
@@ -84,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(RegisterActivity.this, "No se pudo registrar el usuario ", Toast.LENGTH_LONG).show();
                             }
                         }
-
+                    progressDialog.dismiss();
                     }
                 });
 

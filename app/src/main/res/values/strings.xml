@@ -1,12 +1,16 @@
 <resources>
     <string name="app_name">DinnerQR</string>
     <string name="email">Email</string>
-    <string name="password">password</string>
-    <string name="registrar">registrar</string>
-    <string name="login">Log in</string>
+    <string name="password">Password</string>
+    <string name="registrar">Crear cuenta</string>
+    <string name="login">Iniciar sesión</string>
     <string name="mensaje">¿Aun no tienes cuenta? Registrate aqui:</string>
     <string name="name">Nombre</string>
-    <string name="Agregar">agregar</string>
+    <string name="Agregar">Agregar</string>
     <string name="Total">Total a pagar: </string>
     <string name="factura">Mi cuenta</string>
+    <string name="scan_qr">Escanear código QR</string>
+    <string name="bill">Ver cuenta</string>
+    <string name="account_settings">Ajustes</string>
+    <string name="recommended">Ver recomendaciones</string>
 </resources>

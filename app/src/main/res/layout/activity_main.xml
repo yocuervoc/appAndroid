@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".activities.MainActivity">
+    
+    <ImageView
+        android:id="@+id/dinner_qr_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dinner_qr_logo"
+        app:layout_constraintStart_toEndOf="parent"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ></TextView>
 
     <EditText
         android:id="@+id/etMail"
@@ -14,36 +30,7 @@
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:onClick="login"
-        android:text="@string/login"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edPassworlogin" />
-
-    <Button
-        android:id="@+id/buttonRegistrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:onClick="registeractivity"
-        android:text="@string/registrar"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/edPassworlogin"
@@ -53,11 +40,17 @@
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etMail" />
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        style="@style/Button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:onClick="login"
+        android:text="@string/login"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textView"
@@ -65,8 +58,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="@string/mensaje"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/buttonRegistrar"
+        android:layout_width="300dp"
+        style="@style/Button"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="registeractivity"
+        android:text="@string/registrar"
+        android:textSize="24sp" />
+</LinearLayout>

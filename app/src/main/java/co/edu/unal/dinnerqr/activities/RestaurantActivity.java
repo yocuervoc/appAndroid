@@ -19,16 +19,15 @@ import java.util.ArrayList;
 import co.edu.unal.dinnerqr.R;
 import co.edu.unal.dinnerqr.clases.Plato;
 import co.edu.unal.dinnerqr.soport.Adaptador;
-import co.edu.unal.dinnerqr.soport.Entidad;
 
 public class RestaurantActivity extends AppCompatActivity {
 
-    private TextView nombreRestaurante;
+    private TextView nombreRestauranteTextView;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private ListView listView;
 
     /////
-    private ListView lvItems;
+    private ListView itemsListView;
     private Adaptador adaptador;
     private ArrayList<Plato> arrayEntidad = new ArrayList<>();
     /////
@@ -39,12 +38,16 @@ public class RestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
         //listView = (ListView)findViewById(R.id.lvPlatos);
-        nombreRestaurante = (TextView)findViewById(R.id.tvRestaurantName);
+        nombreRestauranteTextView = (TextView)findViewById(R.id.tvRestaurantName);
         qrContend = getIntent().getStringExtra("code");
-        nombreRestaurante.setText(qrContend);
-        lvItems = (ListView) findViewById(R.id.lvItems);
+        nombreRestauranteTextView.setText(qrContend);
+        itemsListView = (ListView) findViewById(R.id.lvItems);
 
-        DatabaseReference restaurante = database.getInstance().getReference("restaurant").child(qrContend);
+        String qrContent = getIntent().getStringExtra("code");
+        nombreRestauranteTextView.setText(qrContent);
+        itemsListView = (ListView) findViewById(R.id.lvItems);
+
+        DatabaseReference restaurante = database.getInstance().getReference("restaurant").child(qrContent);
         restaurante.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -53,7 +56,7 @@ public class RestaurantActivity extends AppCompatActivity {
                     try {
                         Plato plato = snapshot.getValue(Plato.class);
                         //Log.e("Nombre", ""+plato.getName());
-                        llenarItems(plato.getId(), plato.getName(), plato.getPrice(), plato.getDescription());
+                        addDishToView(plato.getId(), plato.getName(), plato.getPrice(), plato.getDescription());
                     }catch (Exception e){
 
                     }
@@ -66,8 +69,8 @@ public class RestaurantActivity extends AppCompatActivity {
             }
         });
     }
-    private void llenarItems(String id, String nombre, double precio, String descripcion){
 
+    private void addDishToView(String id, String nombre, double precio, String descripcion){
         Plato plato = new Plato();
         plato.setId(id);
         plato.setName(nombre);
@@ -77,9 +80,11 @@ public class RestaurantActivity extends AppCompatActivity {
         arrayEntidad.add(plato);
 
         adaptador = new Adaptador(this, arrayEntidad);
-        lvItems.setAdapter(adaptador);
+        itemsListView.setAdapter(adaptador);
     }
-    @Override public void onBackPressed() {
+
+    @Override
+    public void onBackPressed() {
         Intent optionsActivity = new Intent(this, OptionsActivity.class);
         startActivity(optionsActivity);
     }

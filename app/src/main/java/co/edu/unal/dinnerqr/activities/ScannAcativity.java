@@ -42,7 +42,6 @@ public class ScannAcativity extends AppCompatActivity {
     }
 
     @Override
-
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -58,11 +57,9 @@ public class ScannAcativity extends AppCompatActivity {
 
             }
     }
+
     @Override public void onBackPressed() {
         Intent optionsActivity = new Intent(this, OptionsActivity.class);
         startActivity(optionsActivity);
     }
-
-
-
 }
