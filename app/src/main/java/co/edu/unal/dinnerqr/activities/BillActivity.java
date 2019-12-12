@@ -22,6 +22,7 @@ import co.edu.unal.dinnerqr.R;
 import co.edu.unal.dinnerqr.clases.Plato;
 import co.edu.unal.dinnerqr.soport.BillListAdapter;
 import co.edu.unal.dinnerqr.soport.BillSoport;
+import co.edu.unal.dinnerqr.soport.PlatoSoport;
 
 import static co.edu.unal.dinnerqr.activities.DetalleLista.billName;
 import static co.edu.unal.dinnerqr.activities.DetalleLista.billprice;
@@ -83,6 +84,10 @@ public class BillActivity extends AppCompatActivity {
 
                     Log.e("s", ""+snapshot.getValue());
                     Log.e("tamanio de idplato", ""+idPlatos.size());
+
+                    PlatoSoport p = snapshot.getValue(PlatoSoport.class);
+                    peopleList.add(new BillSoport(p.getNombre(), Double.toString(p.getPrecio())));
+                    total+=p.getPrecio();
                 }
                 lista2();
 

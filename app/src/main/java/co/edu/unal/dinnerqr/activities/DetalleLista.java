@@ -30,6 +30,7 @@ import co.edu.unal.dinnerqr.R;
 import co.edu.unal.dinnerqr.clases.Cliente;
 import co.edu.unal.dinnerqr.clases.Plato;
 import co.edu.unal.dinnerqr.soport.Entidad;
+import co.edu.unal.dinnerqr.soport.PlatoSoport;
 
 import static co.edu.unal.dinnerqr.activities.RestaurantActivity.qrContend;
 
@@ -143,7 +144,10 @@ public class DetalleLista extends AppCompatActivity {
                 billName.add(nombre);
                 billprice.add(precio);
                 String idBill = bill.child(qrContend).child(idUser).push().getKey();
-                bill.child(qrContend).child(idUser).child(idBill).setValue(id);
+                PlatoSoport p = new PlatoSoport();
+                p.setNombre(nombre);
+                p.setPrecio(precio);
+                bill.child(qrContend).child(idUser).child(idBill).setValue(p);
 
                 cliente.child(idUser).child("bill").setValue(qrContend);
                 Toast.makeText(context,"Tu plato esta en camino", Toast.LENGTH_SHORT).show();
